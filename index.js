@@ -41,6 +41,17 @@ var vCard = (function () {
               var imgData = fs.readFileSync(fileLocation);
               this.url = imgData.toString('base64');
               this.base64 = true;
+            },
+
+            /**
+             * Embed a photo from raw image data
+             * @param  {buffer} imgData   Raw image data
+             * @param  {string} mediaType Media type of photo (JPEG, PNG, GIF)
+             */
+            embedFromData: function(imgData, mediaType) {
+                this.mediaType = mediaType;
+                this.url = imgData.toString('base64');
+                this.base64 = true;
             }
         };
     }
